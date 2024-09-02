@@ -67,6 +67,10 @@ body {
     gap: 2rem;
 }
 
+.mural a {
+    color: #fff;
+}
+
 .postagem {
     padding: 3rem;
     border: 1px solid #31CF67;
