@@ -19,19 +19,30 @@ const consultarCep = async () => {
         estadoText.innerText = ""
         regiaoText.innerText = ""
         dddText.innerText = ""
-        erroText.innerText = "CEP inválido"
+        erroText.innerText = "Erro 1: CEP inválido"
     } else {
         try {
             const respose = await fetch(`https://viacep.com.br/ws/${inputCep.value}/json/`)
             const data = await respose.json()
-            dadosResultado.style.display = 'grid'
-            logradouroText.innerHTML = "<strong>Logradouro: </strong>" + data.logradouro
-            bairroText.innerHTML = "<strong>Bairro: </strong>" + data.bairro
-            localidadeText.innerHTML = "<strong>Localidade: </strong>" + data.localidade
-            estadoText.innerHTML = "<strong>Estado: </strong>" + data.estado
-            regiaoText.innerHTML = "<strong>Região: </strong>" + data.regiao
-            dddText.innerHTML = "<strong>DDD: </strong>" + data.ddd
-            erroText.innerText = ""
+            if (!data.erro) {
+                dadosResultado.style.display = 'grid'
+                logradouroText.innerHTML = "<strong>Logradouro: </strong>" + data.logradouro
+                bairroText.innerHTML = "<strong>Bairro: </strong>" + data.bairro
+                localidadeText.innerHTML = "<strong>Localidade: </strong>" + data.localidade
+                estadoText.innerHTML = "<strong>Estado: </strong>" + data.estado
+                regiaoText.innerHTML = "<strong>Região: </strong>" + data.regiao
+                dddText.innerHTML = "<strong>DDD: </strong>" + data.ddd
+                erroText.innerText = ""
+            } else {
+                dadosResultado.style.display = 'block'
+                logradouroText.innerText = ""
+                bairroText.innerText = ""
+                localidadeText.innerText = ""
+                estadoText.innerText = ""
+                regiaoText.innerText = ""
+                dddText.innerText = ""
+                erroText.innerText = "Erro 2: CEP não encontrado"
+            }
         } catch(error) {
             dadosResultado.style.display = 'block'
             logradouroText.innerText = ""
@@ -40,7 +51,7 @@ const consultarCep = async () => {
             estadoText.innerText = ""
             regiaoText.innerText = ""
             dddText.innerText = ""
-            erroText.innerText = "CEP não encontrado"
+            erroText.innerText = "Erro 3: CEP não encontrado"
         }
     }
 
