@@ -1,9 +1,9 @@
-import IAnimesDTO from "../../../dtos/IAnimeDTO";
-import IUpdateAnimeDTO from "../../../dtos/IUpdateAnimeDTO";
-import IAnimesRepository from "../../../repositories/IAnimesRepository";
+import IAnimesDTO from "../dtos/IAnimeDTO";
 import Anime from "../entities/Anime";
+import IUpdateAnimeDTO from "../dtos/IUpdateAnimeDTO";
+import IAnimesRepository from "../dtos/IAnimesRepository";
 
-class AnimesRepository implements IAnimesRepository {
+class AnimesRepository implements IAnimesRepository{
     private jsRepository: Anime[]
 
     constructor() {

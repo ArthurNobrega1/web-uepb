@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import AnimesRepository from "../../js/repositories/AnimesRepository";
-import CreateAnimeService from "../../../services/CreateAnimeService";
-import UpdateAnimeService from "../../../services/UpdateAnimeService";
+import AnimesRepository from "../repositories/AnimesRepository";
+import CreateAnimeService from "../services/CreateAnimeService";
+import UpdateAnimeService from "../services/UpdateAnimeService";
 
 const animesRepository = new AnimesRepository()
 
